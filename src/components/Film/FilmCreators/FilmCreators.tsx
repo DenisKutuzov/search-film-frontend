@@ -21,27 +21,27 @@ const FilmCreators = ({actors, id}: CreatorsProps) => {
     const {modalOpen} = useSelector(selectFilms)
     const dispatch = useDispatch()
 
-    const getNumActorsToDisplay = () => {
-        if (typeof window !== 'undefined') {
-            return window.innerWidth >= 880 ? 10 : 4
-        }
-        return 4
-    }
+    const useResize = () => {
+        const [width, setWidth] = useState(window.innerWidth)
 
-    const [numActorsToDisplay, setNumActorsToDisplay] = useState(getNumActorsToDisplay())
-
-    useEffect(() => {
-        const handleResize = () => {
-            setNumActorsToDisplay(getNumActorsToDisplay())
-        }
-        if (typeof window !== 'undefined') {
+        useEffect(() => {
+            const handleResize = (event) => {
+                setWidth(event.target.innerWidth)
+            }
             window.addEventListener('resize', handleResize)
-
             return () => {
                 window.removeEventListener('resize', handleResize)
             }
-        }
-    }, [])
+        }, [])
+
+        if (width >= 1260) return 10
+        if (width < 1260 && width > 1145) return 9
+        if (width <= 1145 && width > 1035) return 8
+        if (width <= 1035 && width > 920) return 7
+        if (width <= 920 && width > 805) return 6
+        if (width <= 805 && width > 690) return 5
+        if (width <= 690) return 4
+    }
 
     useEffect(() => {
         if (modalOpen.modalState) {
@@ -66,8 +66,8 @@ const FilmCreators = ({actors, id}: CreatorsProps) => {
                 {t('title')}
             </div>
             <div className={styles.creatorsItems}>
-                {actors.slice(0, numActorsToDisplay).map((actor) => (
-                        <FilmCreatorsItem actor={actor} key={actor.id} inModal={true}/>
+                {actors.slice(0, useResize()).map((actor) => (
+                    <FilmCreatorsItem actor={actor} key={actor.id} inModal={true}/>
                 ))}
                 <button onClick={() => modalOpenHandler()}
                         className={styles.moreCreators}>

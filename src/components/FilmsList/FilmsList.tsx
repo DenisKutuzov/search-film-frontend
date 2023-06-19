@@ -252,11 +252,20 @@ export default function FilmsList({genres, countries, listDir, listActor, search
 
     }
 
+
+    let arr = [1,2,3,4,5,6,7]
+    if (window.innerWidth < 1297 && window.innerWidth > 1115) { arr = [1,2,3,4,5,6]}
+    if (window.innerWidth <= 1115 && window.innerWidth > 933) {arr = [1,2,3,4,5]}
+    if (window.innerWidth <= 933 && window.innerWidth > 751) {arr = [1,2,3,4]}
+    if (window.innerWidth <= 751 && window.innerWidth > 569) {arr = [1,2,3]}
+    if (window.innerWidth <= 569 && window.innerWidth > 387) {arr =[1,2]}
+    if (window.innerWidth <= 387) {arr = [1]}
+
     return (
         <>
             {!loading &&
                 <div className={styles.cardList}>
-                    {new Array(7).map((index) => <div key={index}><Skeleton/>
+                    {arr.map((index) => <div key={index}><Skeleton/>
                         </div>
                     )}
                 </div>

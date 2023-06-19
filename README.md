@@ -1,40 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Инструкция по тому, как запустить и посмотреть проект локально c работающими серверами:
 
-## Getting Started
+1) Сделать git clone https://github.com/M-D-I-kinopoisk/search-film-frontend.git
 
-First, run the development server:
+2) Сделать git clone https://github.com/Keronon/__learnjs_Project_A.git
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3) Скачать https://drive.google.com/file/d/1yvaQp2c-QtMsLnfBHxXuz2F5Lle99XPy/view?usp=sharing и переместить папку images в папку из пункта 2)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4) Чтобы запустить контейнеры docker, необходимо зайти в IDE, открыть папку из пункта 2 и прописать в терминале следующую команду: docker-compose up -d --build
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+5) Вскоре после этого контейнеры будут запущены, а вам нужно будет зайти в IDE, открыть папку из пункта 1 и прописать npm run dev.  Вскоре после этого в вашем браузере на http://localhost:3000 появится данный сайт.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+6) Чтобы зайти как Администратор, введите при авторизации :<br/>
+   e-mail       :   mail@mail.io <br/>
+   password :   password
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Команды, которые можно использовать:
 
-## Learn More
+    npm run dev - запускает проект
+    npm run build - собирает проект  
+    npm run sb - запускает StoryBook проекта
+    npm run build-storybook - собирает StoryBook проекта
+    npm run test - запускает тесты 
+    npm run cypress:open - так же запускает тесты
 
-To learn more about Next.js, take a look at the following resources:
+Все команды при необходимости нужно прописывать в терминале.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Основной стек проекта:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Typescript,
+Next,
+Redux,
+Jest,
+Cypress
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-test comment
